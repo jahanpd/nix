@@ -17,12 +17,14 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [   pkgs.neovim
+						pkgs.zoom-us
 						pkgs.tmux
 						pkgs.brave
 						pkgs.fzf
 						pkgs.nodejs_23
 						pkgs.syncthing
 						pkgs.emacs
+						pkgs.auctex
 						pkgs.cmake # for building
         ];
       homebrew = {
@@ -33,6 +35,7 @@
 					casks = [
 					  "alacritty"
 						"libreoffice"
+						"jabref"
 					];
         onActivation.cleanup = "zap";
 				onActivation.autoUpdate = true;
