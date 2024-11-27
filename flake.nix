@@ -10,7 +10,7 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew }:
   let
-    configuration = { pkgs, config, lib,  ... }: {
+    configuration = { pkgs, config, lib, ... }: {
       nixpkgs.config.allowUnfree = true;
 
       # List packages installed in system profile. To search by name, run:
@@ -24,8 +24,9 @@
 						pkgs.nodejs_23
 						pkgs.syncthing
 						pkgs.emacs
-						pkgs.auctex
+						pkgs.texliveMedium
 						pkgs.cmake # for building
+						pkgs.ollama
         ];
       homebrew = {
 					enable=true;
@@ -36,16 +37,20 @@
 					  "alacritty"
 						"libreoffice"
 						"jabref"
+						"nanosaur"
 					];
         onActivation.cleanup = "zap";
 				onActivation.autoUpdate = true;
 				onActivation.upgrade = true;
        };
 
-      fonts.packages = [
-        (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-      ];
-
+			fonts.packages = with pkgs; [
+					(nerdfonts.override { fonts = [ 
+					"FiraCode" 
+					"DroidSansMono"
+					"Mononoki"
+					]; })
+			];
 		  # copy apps installed by nix to app directory to show up in spotlight
 		  system.activationScripts.applications.text = lib.mkForce ''
 				echo "Setting up /Applications/Nix Apps" >&2
@@ -54,6 +59,7 @@
 				mkdir -p "$baseDir"
 				${pkgs.rsync}/bin/rsync --archive --checksum --chmod=-w --copy-unsafe-links --delete "$appsSrc" "$baseDir"
 			'';
+
       # Auto upgrade nix package and the daemon service.
       services.nix-daemon.enable = true;
       # nix.package = pkgs.nix;
