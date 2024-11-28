@@ -12,11 +12,38 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
   {
+		# config for 
+		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+				system = "x86_64-linux";
+				specialArgs = { inherit inputs; };
+				modules = [
+						./configuration.nix
+						home-manager.nixosModules.home-manager
+						{
+								home-manager.useGlobalPkgs = true;
+								home-manager.useUserPackages = true;
+								home-manager.users.jahan = import ./home.nix;
+						}
+        ];
+
+		};
+
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."m1_air" = nix-darwin.lib.darwinSystem {
 		  specialArgs = { inherit inputs self; };
-      modules = [ ./macconfig.nix ./home.nix ];
+      modules = [ 
+					./macconfig.nix 
+					home-manager.darwinModules.home-manager
+					{
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.users.jahan = import ./home.nix;
+
+            # Optionally, use home-manager.extraSpecialArgs to pass
+            # arguments to home.nix
+          }
+			];
     };
 
     # Expose the package set, including overlays, for convenience.

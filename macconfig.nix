@@ -1,4 +1,9 @@
 { pkgs, config, lib, self, ... }: {
+		  users.users.jahan = {
+			  name = "jahan";
+			  home = "/Users/jahan";
+		  };
+
       nixpkgs.config.allowUnfree = true;
 
       # List packages installed in system profile. To search by name, run:
@@ -15,6 +20,7 @@
 						pkgs.texliveMedium
 						pkgs.cmake # for building
 						pkgs.ollama
+						pkgs.thefuck
         ];
       homebrew = {
 					enable=true;
