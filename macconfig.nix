@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }: {
+{ pkgs, config, lib, self, ... }: {
       nixpkgs.config.allowUnfree = true;
 
       # List packages installed in system profile. To search by name, run:

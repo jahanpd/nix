@@ -13,7 +13,8 @@
     # Build darwin flake using:
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."m1_air" = nix-darwin.lib.darwinSystem {
-      modules = [ ./macconfig.nix ];
+		  specialArgs = { inherit inputs self; };
+      modules = [ ./macconfig.nix ./home.nix ];
     };
 
     # Expose the package set, including overlays, for convenience.
