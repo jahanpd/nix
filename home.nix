@@ -3,7 +3,7 @@
 			name = "jahan";
 			home = "/Users/jahan";
 		};
-		home-manager.users.jahan = { pkgs, ... }: {
+		home-manager.users.jahan = { pkgs, home-manager, ... }: {
 			home.packages = [ 
 			  pkgs.bat 
 				pkgs.fzf
