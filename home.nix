@@ -1,5 +1,4 @@
 { pkgs, config, lib, ... }: {
-		imports = [ <home-manager/nix-darwin> ];
 		users.users.jahan = {
 			name = "jahan";
 			home = "/Users/jahan";
