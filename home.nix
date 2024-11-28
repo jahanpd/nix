@@ -1,4 +1,4 @@
-{ pkgs, config, lib, ... }: {
+{ pkgs, config, lib, home-manager, ... }: {
 		users.users.jahan = {
 			name = "jahan";
 			home = "/Users/jahan";
