@@ -1,4 +1,8 @@
 { pkgs, config, lib, self, ... }: {
+	imports = [
+		../basepkgs.nix
+		../basefonts.nix
+	];
 		  users.users.jahan = {
 			  name = "jahan";
 			  home = "/Users/jahan";
@@ -9,18 +13,8 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [   pkgs.neovim
-						pkgs.zoom-us
-						pkgs.tmux
-						pkgs.brave
-						pkgs.fzf
-						pkgs.nodejs_23
+        [   
 						pkgs.syncthing
-						pkgs.emacs
-						pkgs.texliveMedium
-						pkgs.cmake # for building
-						pkgs.ollama
-						pkgs.thefuck
         ];
       homebrew = {
 					enable=true;
@@ -38,13 +32,6 @@
 				onActivation.upgrade = true;
        };
 
-			fonts.packages = with pkgs; [
-					(nerdfonts.override { fonts = [ 
-					"FiraCode" 
-					"DroidSansMono"
-					"Mononoki"
-					]; })
-			];
 		  # copy apps installed by nix to app directory to show up in spotlight
 		  system.activationScripts.applications.text = lib.mkForce ''
 				echo "Setting up /Applications/Nix Apps" >&2

@@ -8,9 +8,11 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ../basepkgs.nix
+      ../basefonts.nix
     ];
 
-  # Use the GRUB 2 boot loader.
+  # Use the GRUB 2 boot loader
   # boot.loader.grub.enable = true;
   boot.loader.systemd-boot.enable = true;
   
@@ -61,6 +63,16 @@
     pulse.enable = true;
   };
 
+  services = {
+    syncthing = {
+        enable = true;
+        group = "wheel";
+        user = "jahan";
+        dataDir = "/home/jahan/Sync";    # Default folder for new synced folders
+        configDir = "/home/jahan/.local/state/syncthing/";   # Folder for Syncthing's settings and keys
+    };
+  };
+  
   # Enable touchpad support (enabled default in most desktopManager).
   # services.libinput.enable = true;
 
@@ -70,6 +82,7 @@
     extraGroups = [ "wheel" ]; # Enable ‘sudo’ for the user.
     packages = with pkgs; [
     ];
+    shell = pkgs.zsh;
   };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -95,6 +108,7 @@
   # };
 
   programs.hyprland.enable = true;
+  programs.zsh.enable = true;
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
