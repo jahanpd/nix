@@ -7,5 +7,7 @@
     pkgs.rofi
 		pkgs.alacritty
 		pkgs.swww
+		pkgs.bitwarden-desktop
+		pkgs.gh
   ];
 }
