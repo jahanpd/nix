@@ -3,4 +3,6 @@
     ../configs/hypr.nix
     ../basehome.nix
   ];
+  home.packages = [
+  ];
 }

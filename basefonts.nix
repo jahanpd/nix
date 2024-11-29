@@ -1,9 +1,8 @@
 { pkgs, config, lib, ... }: {
-			fonts.packages = with pkgs; [
-					(nerdfonts.override { fonts = [ 
-					"FiraCode" 
-					"DroidSansMono"
-					"Mononoki"
-					]; })
-			];
+fonts.packages = with pkgs; [
+	noto-fonts
+	nerd-fonts.fira-code
+	nerd-fonts.droid-sans-mono
+	nerd-fonts.mononoki
+];
 }
