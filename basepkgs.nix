@@ -4,7 +4,10 @@
       # List packages installed in system profile. To search by name, run:
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
-        [   pkgs.neovim
+        [   
+						pkgs.neovim
+						pkgs.git
+						pkgs.curl
 						pkgs.zoom-us
 						pkgs.tmux
 						pkgs.brave

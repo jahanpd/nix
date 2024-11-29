@@ -1,24 +1,18 @@
-# Edit this configuration file to define what should be installed on
-# your system. Help is available in the configuration.nix(5) man page, on
-# https://search.nixos.org/options and in the NixOS manual (`nixos-help`).
-
 { config, lib, pkgs, ... }:
 
 {
   imports =
-    [ # Include the results of the hardware scan.
+    [ 
       ./hardware-configuration.nix
       ../basepkgs.nix
       ../basefonts.nix
+			./docker.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
-  
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
-
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
-  
   # nvidia setup
   hardware.graphics = {
     enable = true;
@@ -59,9 +53,6 @@
         configDir = "/home/jahan/.local/state/syncthing/";   # Folder for Syncthing's settings and keys
     };
   };
-  
-  # Enable touchpad support (enabled default in most desktopManager).
-  # services.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jahan = {
@@ -73,15 +64,12 @@
   };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    neovim
-    wget
-    curl
-    git
     kitty
+		docker-compose
   ];
 
   environment.variables.EDITOR = "nvim";
