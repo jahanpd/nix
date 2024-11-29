@@ -24,6 +24,11 @@
       options = [ "fmask=0077" "dmask=0077" ];
     };
 
+  fileSystems."/home/jahan/ssd3" =
+    { device = "/dev/disk/by-uuid/161495b5-841b-482b-a1dc-4159c9462a29";
+      fsType = "ext4";
+    };
+
   swapDevices =
     [ { device = "/dev/disk/by-uuid/ab055306-61a2-413c-993d-3a4156d28f81"; }
     ];
