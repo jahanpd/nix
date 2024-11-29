@@ -1,8 +1,11 @@
 { pkgs, config, lib, home-manager, ... }: {
   imports = [
-    ../configs/hypr.nix
     ../basehome.nix
   ];
   home.packages = [
+    pkgs.waybar
+    pkgs.rofi
+		pkgs.alacritty
+		pkgs.swww
   ];
 }
