@@ -9,5 +9,6 @@
 		pkgs.swww
 		pkgs.bitwarden-desktop
 		pkgs.gh
+		pkgs.swayidle
   ];
 }
