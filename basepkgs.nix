@@ -12,6 +12,7 @@
 						pkgs.tmux
 						pkgs.brave
 						pkgs.fzf
+						pkgs.ripgrep
 						pkgs.syncthing
 						pkgs.nodejs_23
 						pkgs.emacs
