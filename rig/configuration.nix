@@ -7,6 +7,7 @@
       ../basepkgs.nix
       ../basefonts.nix
 			./docker.nix
+			./nginx.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
@@ -62,6 +63,11 @@
     ];
     shell = pkgs.zsh;
   };
+	# this is a user for SSHing with a very high entropy password
+  users.users.pen15 = {
+    isNormalUser = true;
+    shell = pkgs.zsh;
+  };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -87,11 +93,19 @@
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  services.openssh.enable = true;
+  services.openssh = {
+			enable = true;
+			ports = [ 121 ];
+			settings = {
+					PasswordAuthentication = true;
+					AllowUsers = [ "pen15" ];
+					PermitRootLogin = "no";
+			};
+	};
 
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [ 8096 80 443  ];
+  networking.firewall.allowedUDPPorts = [ 8096 80 443  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 

@@ -6,10 +6,6 @@
 			enable = true;
 			enableCompletion = true;
 			syntaxHighlighting.enable = true;
-
-			shellAliases = {
-					nupdate = "darwin-rebuild switch --flake ~/nix#m1_air";
-			};
 			history = {
 				size = 10000;
 			};
