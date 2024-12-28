@@ -10,6 +10,10 @@
 		pkgs.bitwarden-desktop
 		pkgs.gh
 		pkgs.swayidle
+		pkgs.ffmpeg
+		pkgs.cloudflared
+		# lsps
+		pkgs.basedpyright
   ];
   programs.zsh.shellAliases = {
 					nupdate = "sudo nixos-rebuild switch --flake ~/nix#nixos";
