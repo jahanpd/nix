@@ -12,6 +12,8 @@
     ];
 
   boot.loader.systemd-boot.enable = true;
+	boot.blacklistedKernelModules = [ "nouveau" "i2c_nvidia_gpu" ];
+
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
