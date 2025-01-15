@@ -12,7 +12,9 @@
     ];
 
   boot.loader.systemd-boot.enable = true;
-	boot.blacklistedKernelModules = [ "nouveau" "i2c_nvidia_gpu" ];
+	# boot.blacklistedKernelModules = [ "nouveau" "i2c_nvidia_gpu" ];
+	boot.supportedFilesystems = [ "ntfs" "xfs" ];
+
 
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   # Set your time zone.
