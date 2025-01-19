@@ -8,10 +8,9 @@
       ../basefonts.nix
     ];
 
-  boot.loader.systemd-boot.enable = true;
 	# boot.blacklistedKernelModules = [ "nouveau" "i2c_nvidia_gpu" ];
-	boot.supportedFilesystems = [ "ntfs" "xfs" ];
-
+  boot.loader.grub.enable = false;
+	boot.loader.generic-extlinux-compatible.enable = true;
 
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   networking.networkmanager.ensureProfiles.profiles = {
@@ -72,13 +71,8 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    kitty
 		docker-compose
-		cudaPackages.cudatoolkit
-		cudaPackages.cudnn
-		cachix
 		gcc
-		unifi
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -125,7 +119,7 @@
   # and migrated your data accordingly.
   #
   # For more information, see `man configuration.nix` or https://nixos.org/manual/nixos/stable/options#opt-system.stateVersion .
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "25.05"; # Did you read the comment?
 
 }
 
