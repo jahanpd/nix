@@ -8,9 +8,14 @@
       ../basefonts.nix
 			./docker.nix
 			./nginx.nix
+			../cachix.nix
     ];
 
   boot.loader.systemd-boot.enable = true;
+	# boot.blacklistedKernelModules = [ "nouveau" "i2c_nvidia_gpu" ];
+	boot.supportedFilesystems = [ "ntfs" "xfs" ];
+
+
   networking.networkmanager.enable = true;  # Easiest to use and most distros use this by default.
   # Set your time zone.
   time.timeZone = "Australia/Melbourne";
@@ -36,6 +41,8 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+  # potentially critical for running dynamic binaries eg bundled cuda
+	programs.nix-ld.enable = true;
 
   # Enable sound.
   # hardware.pulseaudio.enable = true;
@@ -76,6 +83,11 @@
   environment.systemPackages = with pkgs; [
     kitty
 		docker-compose
+		cudaPackages.cudatoolkit
+		cudaPackages.cudnn
+		cachix
+		gcc
+		unifi
   ];
 
   environment.variables.EDITOR = "nvim";
@@ -104,8 +116,8 @@
 	};
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8096 80 443  ];
-  networking.firewall.allowedUDPPorts = [ 8096 80 443  ];
+  networking.firewall.allowedTCPPorts = [ 8096 80 443 8000 7844 ];
+  networking.firewall.allowedUDPPorts = [ 8096 80 443 8000 7844 ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
