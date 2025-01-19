@@ -12,8 +12,8 @@
 
   outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
   {
-		# config for 
-		nixosConfigurations.nixos = nixpkgs.lib.nixosSystem {
+		# config for main rig
+		nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
 				system = "x86_64-linux";
 				specialArgs = { inherit inputs; };
 				modules = [
@@ -23,6 +23,22 @@
 								home-manager.useGlobalPkgs = true;
 								home-manager.useUserPackages = true;
 								home-manager.users.jahan = import ./rig/home.nix;
+						}
+        ];
+
+		};
+
+		# config for pi4
+		nixosConfigurations."pi4" = nixpkgs.lib.nixosSystem {
+				system = "aarch64-linux";
+				specialArgs = { inherit inputs; };
+				modules = [
+						./pi4/configuration.nix
+						home-manager.nixosModules.home-manager
+						{
+								home-manager.useGlobalPkgs = true;
+								home-manager.useUserPackages = true;
+								home-manager.users.jahan = import ./pi4/home.nix;
 						}
         ];
 
