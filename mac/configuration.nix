@@ -15,6 +15,7 @@
       environment.systemPackages =
         [   
 						pkgs.syncthing
+						pkgs.docker
         ];
       homebrew = {
 					enable=true;
@@ -22,6 +23,7 @@
 						"libtool"
 					];
 					casks = [
+						"emacs"
 					  "alacritty"
 						"libreoffice"
 						"jabref"
