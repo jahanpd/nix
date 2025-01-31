@@ -52,6 +52,22 @@
     pulse.enable = true;
   };
 
+
+  # List packages installed in system profile. To search, run:
+  # $ nix search wget
+  environment.systemPackages = with pkgs; [
+    kitty
+		docker-compose
+		cudaPackages.cudatoolkit
+		cudaPackages.cudnn
+		cachix
+		gcc
+		unifi
+		vscode
+		R
+    rstudio
+  ];
+
   services = {
     syncthing = {
         enable = true;
@@ -77,18 +93,6 @@
   };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
-  environment.systemPackages = with pkgs; [
-    kitty
-		docker-compose
-		cudaPackages.cudatoolkit
-		cudaPackages.cudnn
-		cachix
-		gcc
-		unifi
-  ];
 
   environment.variables.EDITOR = "nvim";
 

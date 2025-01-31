@@ -17,7 +17,6 @@
 						pkgs.nodejs_23
 						pkgs.texliveMedium
 						pkgs.cmake # for building
-						pkgs.ollama
 						pkgs.thefuck
         ];
 }
