@@ -15,8 +15,6 @@
 						pkgs.ripgrep
 						pkgs.syncthing
 						pkgs.nodejs_23
-						pkgs.emacs
-						pkgs.libgccjit
 						pkgs.texliveMedium
 						pkgs.cmake # for building
 						pkgs.ollama

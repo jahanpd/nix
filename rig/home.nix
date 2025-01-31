@@ -3,6 +3,7 @@
     ../basehome.nix
   ];
   home.packages = [
+	  pkgs.emacs
     pkgs.waybar
     pkgs.rofi
 		pkgs.alacritty
