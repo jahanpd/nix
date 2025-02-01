@@ -21,6 +21,7 @@
 					enable=true;
 					brews=[
 						"libtool"
+						"qmk/qmk/qmk"
 					];
 					casks = [
 						"emacs"
