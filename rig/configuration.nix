@@ -65,7 +65,7 @@
 		unifi
 		vscode
 		R
-    rstudio
+    ollama-cuda
   ];
 
   services = {

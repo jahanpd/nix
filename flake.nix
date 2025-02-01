@@ -1,5 +1,5 @@
 {
-  description = "Fo shizzle nix-darwin system flake";
+  description = "big boi pants aint flakey";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
