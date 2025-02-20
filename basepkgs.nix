@@ -18,5 +18,6 @@
 						pkgs.texliveMedium
 						pkgs.cmake # for building
 						pkgs.thefuck
+						pkgs.pyenv
         ];
 }
