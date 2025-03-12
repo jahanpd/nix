@@ -66,6 +66,8 @@
 		vscode
 		R
     ollama-cuda
+		uv
+		pyenv
   ];
 
   services = {
@@ -85,6 +87,9 @@
     packages = with pkgs; [
     ];
     shell = pkgs.zsh;
+		openssh.authorizedKeys.keys = [
+		  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILG7+2Q8+DBxfiCYPdJY+q+gA/wULeshWhMXMD+WVQP2"
+    ];
   };
 	# this is a user for SSHing with a very high entropy password
   users.users.pen15 = {
@@ -111,10 +116,9 @@
   # Enable the OpenSSH daemon.
   services.openssh = {
 			enable = true;
-			ports = [ 121 ];
+			ports = [ 22 ];
 			settings = {
 					PasswordAuthentication = true;
-					AllowUsers = [ "pen15" ];
 					PermitRootLogin = "no";
 			};
 	};
