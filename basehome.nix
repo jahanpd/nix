@@ -31,6 +31,9 @@ source ~/Sync/zsh_custom
 					plugin = catppuccin;
 					extraConfig = ''
 						set -g @catppuccin_flavour 'mocha'
+						set -g @catppuccin_window_default_text "#W"
+						set -g @catppuccin_window_text "#W"
+						set -g @catppuccin_window_current_text "#W"
 					'';
 				}
 			];
