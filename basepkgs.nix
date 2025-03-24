@@ -9,7 +9,6 @@
 						pkgs.git
 						pkgs.curl
 						pkgs.zoom-us
-						pkgs.tmux
 						pkgs.brave
 						pkgs.fzf
 						pkgs.ripgrep
