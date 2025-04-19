@@ -52,6 +52,15 @@
     pulse.enable = true;
   };
 
+  services.postgresql = {
+    enable = true;
+    ensureDatabases = [ "mydatabase" ];
+    authentication = pkgs.lib.mkOverride 10 ''
+      #TYPE DATABASE    USER    ADDRESS        METHOD
+      local all         all                    trust
+			host  all         all     127.0.0.1/32   trust
+    '';
+  };
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -68,6 +77,7 @@
     ollama-cuda
 		uv
 		pyenv
+		rtorrent
   ];
 
   services = {
