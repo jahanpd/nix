@@ -62,6 +62,28 @@
     '';
   };
 
+  services.redis.servers = {
+		"cache" = {
+				enable = true;
+				port = 6380;
+				user = "redis-cache";
+				settings = {
+						dir = "/var/lib/redis-cache";
+						maxmemory        = "256mb";
+						maxmemory-policy = "volatile-lru";
+				};
+		};
+		"session" = {
+      enable     = true;
+      port       = 6381;
+      user       = "redis-session";
+			settings = {
+				  	dir    = "/var/lib/redis-session";
+						maxmemory        = "256mb";
+						maxmemory-policy = "volatile-lru";
+				};
+    };
+  };
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
@@ -77,7 +99,6 @@
     ollama-cuda
 		uv
 		pyenv
-		rtorrent
   ];
 
   services = {
@@ -87,6 +108,20 @@
         user = "jahan";
         dataDir = "/home/jahan/Sync";    # Default folder for new synced folders
         configDir = "/home/jahan/.local/state/syncthing/";   # Folder for Syncthing's settings and keys
+    };
+		transmission = {
+			enable = true;
+			package = pkgs.transmission_4;
+		};
+  };
+
+  systemd.services.cloudflared-tunnel = {
+    description = "Cloudflared Tunnel Service for SSH";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "/etc/nixos/ssh.sh";
+      # Restart = "always";
     };
   };
 
