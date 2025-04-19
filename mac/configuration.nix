@@ -42,7 +42,7 @@
 				appsSrc="${config.system.build.applications}/Applications/"
 				baseDir="/Applications/Nix Apps"
 				mkdir -p "$baseDir"
-				${pkgs.rsync}/bin/rsync --archive --checksum --chmod=-w --copy-unsafe-links --delete "$appsSrc" "$baseDir"
+				sudo ${pkgs.rsync}/bin/rsync --archive --checksum --chmod=-w --copy-unsafe-links --delete "$appsSrc" "$baseDir"
 			'';
 
       # Auto upgrade nix package and the daemon service.
