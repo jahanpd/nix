@@ -41,6 +41,7 @@ source ~/Sync/zsh_custom
 				# Additional tmux configurations can be added here
 				set -g pane-base-index 1
 				set -g base-index 1
+				set -g mouse on
 				set-option -g allow-rename off
 			'';
   };
