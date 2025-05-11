@@ -13,7 +13,7 @@
 						pkgs.fzf
 						pkgs.ripgrep
 						pkgs.syncthing
-						pkgs.nodejs_23
+						pkgs.nodejs
 						pkgs.pnpm
 						pkgs.texliveMedium
 						pkgs.cmake # for building

@@ -14,7 +14,7 @@
 				plugins = [ "git" "thefuck" "fasd" "tmux" "vi-mode" "fzf"];
 				theme = "sonicradish";
 			};
-			initExtra = ''
+			initContent = ''
 # my functions/aliases
 source ~/Sync/zsh_custom
 '';
