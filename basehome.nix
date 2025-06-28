@@ -11,7 +11,7 @@
 			};
 			oh-my-zsh = {
 				enable = true;
-				plugins = [ "git" "thefuck" "fasd" "tmux" "vi-mode" "fzf"];
+				plugins = [ "git" "fasd" "tmux" "vi-mode" "fzf"];
 				theme = "sonicradish";
 			};
 			initContent = ''
