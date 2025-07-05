@@ -17,7 +17,6 @@
 						pkgs.pnpm
 						pkgs.texliveMedium
 						pkgs.cmake # for building
-						pkgs.pyenv
 						pkgs.typescript
 						pkgs.typescript-language-server
         ];

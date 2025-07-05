@@ -112,8 +112,8 @@
 		vscode
 		R
 		uv
-		pyenv
 		bluez
+		openssl
   ];
 
   services = {
