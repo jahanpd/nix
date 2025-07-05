@@ -8,7 +8,6 @@
 						pkgs.neovim
 						pkgs.git
 						pkgs.curl
-						pkgs.zoom-us
 						pkgs.brave
 						pkgs.fzf
 						pkgs.ripgrep
