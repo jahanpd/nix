@@ -4,6 +4,6 @@
   ];
 
   programs.zsh.shellAliases = {
-					nupdate = "darwin-rebuild switch --flake ~/nix#m1_air";
+					nupdate = "sudo darwin-rebuild switch --flake ~/nix#m1_air";
 			};
 }
