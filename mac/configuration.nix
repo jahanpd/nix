@@ -16,6 +16,8 @@
         [   
 						pkgs.syncthing
 						pkgs.docker
+						pkgs.android-tools
+						pkgs.elmPackages.elm-language-server
         ];
       homebrew = {
 					enable=true;
@@ -35,6 +37,8 @@
 				onActivation.autoUpdate = true;
 				onActivation.upgrade = true;
        };
+
+			system.primaryUser = "jahan";
 
 		  # copy apps installed by nix to app directory to show up in spotlight
 		  system.activationScripts.applications.text = lib.mkForce ''
