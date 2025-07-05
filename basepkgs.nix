@@ -8,7 +8,6 @@
 						pkgs.neovim
 						pkgs.git
 						pkgs.curl
-						pkgs.zoom-us
 						pkgs.brave
 						pkgs.fzf
 						pkgs.ripgrep
@@ -17,7 +16,6 @@
 						pkgs.pnpm
 						pkgs.texliveMedium
 						pkgs.cmake # for building
-						pkgs.pyenv
 						pkgs.typescript
 						pkgs.typescript-language-server
         ];
