@@ -17,7 +17,6 @@
 						pkgs.pnpm
 						pkgs.texliveMedium
 						pkgs.cmake # for building
-						pkgs.thefuck
 						pkgs.pyenv
 						pkgs.typescript
 						pkgs.typescript-language-server
