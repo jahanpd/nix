@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
       ../basepkgs.nix
       ../basefonts.nix
-			./docker.nix
+			# ./docker.nix
 			./nginx.nix
 			../cachix.nix
     ];
@@ -64,6 +64,9 @@
     pulse.enable = true;
   };
 
+  services.getty.autologinOnce = true;
+	services.getty.autologinUser = "jahan";
+
   services.postgresql = {
     enable = true;
     ensureDatabases = [ "mydatabase" ];
@@ -114,6 +117,7 @@
 		uv
 		bluez
 		openssl
+	  transmission_4-qt6
   ];
 
   services = {
