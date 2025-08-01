@@ -18,5 +18,6 @@
 						pkgs.cmake # for building
 						pkgs.typescript
 						pkgs.typescript-language-server
+						pkgs.lua-language-server
         ];
 }
