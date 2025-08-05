@@ -20,5 +20,6 @@
 						pkgs.typescript-language-server
 						pkgs.lua-language-server
 						pkgs.mkcert
+						pkgs.nss
         ];
 }
