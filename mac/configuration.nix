@@ -18,6 +18,7 @@
 						pkgs.docker
 						pkgs.android-tools
 						pkgs.elmPackages.elm-language-server
+						pkgs.codex
         ];
       homebrew = {
 					enable=true;
@@ -29,6 +30,7 @@
 					casks = [
 						"emacs"
 					  "alacritty"
+						"kitty"
 						"libreoffice"
 						"jabref"
 						"nanosaur"
