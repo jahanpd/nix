@@ -34,6 +34,7 @@
 						"libreoffice"
 						"jabref"
 						"nanosaur"
+						"flyctl"
 					];
         onActivation.cleanup = "zap";
 				onActivation.autoUpdate = true;
