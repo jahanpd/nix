@@ -23,6 +23,7 @@
       homebrew = {
 					enable=true;
 					brews=[
+						"flyctl"
 						"libtool"
 						"qmk/qmk/qmk"
 						"cloudflared"
@@ -34,7 +35,6 @@
 						"libreoffice"
 						"jabref"
 						"nanosaur"
-						"flyctl"
 					];
         onActivation.cleanup = "zap";
 				onActivation.autoUpdate = true;
