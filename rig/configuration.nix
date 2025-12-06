@@ -6,7 +6,7 @@
       ./hardware-configuration.nix
       ../basepkgs.nix
       ../basefonts.nix
-			# ./docker.nix
+			./docker.nix
 			./nginx.nix
 			../cachix.nix
     ];
