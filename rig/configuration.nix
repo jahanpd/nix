@@ -105,6 +105,7 @@
   # $ nix search wget
 	nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
+	  obs-studio
     kitty
 		docker-compose
 		cudaPackages.cudatoolkit
