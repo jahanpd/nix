@@ -31,7 +31,7 @@
 						"cloudflared"
 					];
 					casks = [
-						"emacs"
+						"emacs-app"
 					  "alacritty"
 						"kitty"
 						"libreoffice"
