@@ -21,5 +21,7 @@
 						pkgs.lua-language-server
 						pkgs.mkcert
 						pkgs.nss
+						pkgs.opencode
+						pkgs.claude-code
         ];
 }
