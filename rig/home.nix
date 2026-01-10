@@ -16,6 +16,7 @@
 		pkgs.cloudflared
 		# lsps
 		pkgs.basedpyright
+		pkgs.bun
   ];
   programs.zsh.shellAliases = {
 					nupdate = "sudo nixos-rebuild switch --flake ~/nix#nixos";
