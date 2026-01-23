@@ -19,7 +19,6 @@
 						pkgs.docker
 						pkgs.android-tools
 						pkgs.elmPackages.elm-language-server
-						pkgs.codex
 						pkgs.google-cloud-sdk
         ];
       homebrew = {
