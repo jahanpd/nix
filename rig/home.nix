@@ -17,6 +17,7 @@
 		# lsps
 		pkgs.basedpyright
 		pkgs.bun
+		pkgs.firefox
   ];
   programs.zsh.shellAliases = {
 					nupdate = "sudo nixos-rebuild switch --flake ~/nix#nixos";

@@ -62,7 +62,15 @@
   services.pipewire = {
     enable = true;
     pulse.enable = true;
+		alsa.enable = true;
+		alsa.support32Bit = true;
+		jack.enable = true;
   };
+
+	xdg.portal.extraPortals = with pkgs; [
+		xdg-desktop-portal-hyprland
+		xdg-desktop-portal-gtk
+	];
 
   services.getty.autologinOnce = true;
 	services.getty.autologinUser = "jahan";
@@ -106,6 +114,7 @@
 	nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
 	  obs-studio
+		kdePackages.kdenlive
     kitty
 		docker-compose
 		cudaPackages.cudatoolkit
