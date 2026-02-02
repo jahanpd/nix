@@ -52,6 +52,11 @@
     };
   };
 
+	xdg.portal.extraPortals = with pkgs; [
+		xdg-desktop-portal-hyprland
+		xdg-desktop-portal-gtk
+	];
+
   services.getty.autologinOnce = true;
 	services.getty.autologinUser = "jahan";
 
@@ -80,6 +85,7 @@
 
   environment.variables.EDITOR = "nvim";
 
+  programs.hyprland.enable = true;
   programs.zsh.enable = true;
 
   # Enable the OpenSSH daemon.
