@@ -114,7 +114,7 @@
 	nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
 	  obs-studio
-		kdePackages.kdenlive
+		shotcut
     kitty
 		docker-compose
 		cudaPackages.cudatoolkit
@@ -198,10 +198,11 @@
 	};
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8096 80 443 8000 7844 ];
-  networking.firewall.allowedUDPPorts = [ 8096 80 443 8000 7844 ];
+  # networking.firewall.allowedTCPPorts = [ 8096 80 443 8000 7844 ];
+  # networking.firewall.allowedUDPPorts = [ 8096 80 443 8000 7844 3478 19302 ];
+  # networking.firewall.allowedUDPPortRanges = [{ from = 49152; to = 65535;}];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you
