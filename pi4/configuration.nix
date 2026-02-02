@@ -52,6 +52,9 @@
     };
   };
 
+  services.getty.autologinOnce = true;
+	services.getty.autologinUser = "jahan";
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jahan = {
     isNormalUser = true;
