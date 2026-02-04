@@ -67,11 +67,9 @@
     packages = with pkgs; [
     ];
     shell = pkgs.zsh;
-  };
-	# this is a user for SSHing with a very high entropy password
-  users.users.pen15 = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
+		openssh.authorizedKeys.keys = [
+		  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILG7+2Q8+DBxfiCYPdJY+q+gA/wULeshWhMXMD+WVQP2"
+    ];
   };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];

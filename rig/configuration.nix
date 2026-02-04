@@ -165,11 +165,6 @@
 		  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILG7+2Q8+DBxfiCYPdJY+q+gA/wULeshWhMXMD+WVQP2"
     ];
   };
-	# this is a user for SSHing with a very high entropy password
-  users.users.pen15 = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-  };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -192,7 +187,7 @@
 			enable = true;
 			ports = [ 22 ];
 			settings = {
-					PasswordAuthentication = true;
+					PasswordAuthentication = false;
 					PermitRootLogin = "no";
 			};
 	};
