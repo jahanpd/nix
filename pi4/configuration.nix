@@ -52,6 +52,14 @@
     };
   };
 
+	xdg.portal.extraPortals = with pkgs; [
+		xdg-desktop-portal-hyprland
+		xdg-desktop-portal-gtk
+	];
+
+  services.getty.autologinOnce = true;
+	services.getty.autologinUser = "jahan";
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.jahan = {
     isNormalUser = true;
@@ -62,11 +70,14 @@
 		openssh.authorizedKeys.keys = [
 		  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILG7+2Q8+DBxfiCYPdJY+q+gA/wULeshWhMXMD+WVQP2"
     ];
+<<<<<<< HEAD
   };
 	# this is a user for SSHing with a very high entropy password
   users.users.pen15 = {
     isNormalUser = true;
     shell = pkgs.zsh;
+=======
+>>>>>>> e317eb3b9a4e112e6189efd52c11b08ff36a9a70
   };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
@@ -80,6 +91,7 @@
 
   environment.variables.EDITOR = "nvim";
 
+  programs.hyprland.enable = true;
   programs.zsh.enable = true;
 
   # Enable the OpenSSH daemon.

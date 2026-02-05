@@ -114,7 +114,7 @@
 	nixpkgs.config.allowUnfree = true;
   environment.systemPackages = with pkgs; [
 	  obs-studio
-		kdePackages.kdenlive
+		shotcut
     kitty
 		docker-compose
 		cudaPackages.cudatoolkit
@@ -165,11 +165,6 @@
 		  "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAILG7+2Q8+DBxfiCYPdJY+q+gA/wULeshWhMXMD+WVQP2"
     ];
   };
-	# this is a user for SSHing with a very high entropy password
-  users.users.pen15 = {
-    isNormalUser = true;
-    shell = pkgs.zsh;
-  };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -192,16 +187,17 @@
 			enable = true;
 			ports = [ 22 ];
 			settings = {
-					PasswordAuthentication = true;
+					PasswordAuthentication = false;
 					PermitRootLogin = "no";
 			};
 	};
 
   # Open ports in the firewall.
-  networking.firewall.allowedTCPPorts = [ 8096 80 443 8000 7844 ];
-  networking.firewall.allowedUDPPorts = [ 8096 80 443 8000 7844 ];
+  # networking.firewall.allowedTCPPorts = [ 8096 80 443 8000 7844 ];
+  # networking.firewall.allowedUDPPorts = [ 8096 80 443 8000 7844 3478 19302 ];
+  # networking.firewall.allowedUDPPortRanges = [{ from = 49152; to = 65535;}];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   # Copy the NixOS configuration file and link it from the resulting system
   # (/run/current-system/configuration.nix). This is useful in case you

@@ -5,6 +5,7 @@
   home.packages = [
 		pkgs.gh
 		pkgs.cloudflared
+		pkgs.bun
 		# lsps
 		pkgs.basedpyright
   ];
