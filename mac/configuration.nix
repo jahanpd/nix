@@ -20,6 +20,7 @@
 						pkgs.android-tools
 						pkgs.elmPackages.elm-language-server
 						pkgs.google-cloud-sdk
+						pkgs.SDL2
         ];
       homebrew = {
 					enable=true;
