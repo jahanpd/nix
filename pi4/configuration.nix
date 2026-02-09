@@ -52,11 +52,6 @@
     };
   };
 
-	xdg.portal.extraPortals = with pkgs; [
-		xdg-desktop-portal-hyprland
-		xdg-desktop-portal-gtk
-	];
-
   services.getty.autologinOnce = true;
 	services.getty.autologinUser = "jahan";
 
@@ -83,8 +78,12 @@
 
   environment.variables.EDITOR = "nvim";
 
-  programs.hyprland.enable = true;
   programs.zsh.enable = true;
+
+	programs.sway = {
+    enable = true;
+    wrapperFeatures.gtk = true;
+  };
 
   # Enable the OpenSSH daemon.
   services.openssh = {
@@ -95,6 +94,16 @@
 					PermitRootLogin = "no";
 			};
 	};
+
+  systemd.services.cloudflared-tunnel = {
+    description = "Cloudflared Tunnel Service for SSH";
+    after = [ "network.target" ];
+    wantedBy = [ "multi-user.target" ];
+    serviceConfig = {
+      ExecStart = "/etc/nixos/ssh.sh";
+      # Restart = "always";
+    };
+  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ 8096 80 443 8000 7844 ];
