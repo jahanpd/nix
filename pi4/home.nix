@@ -6,6 +6,7 @@
 		pkgs.gh
 		pkgs.cloudflared
 		pkgs.bun
+		pkgs.kitty
 		# lsps
 		pkgs.basedpyright
   ];
