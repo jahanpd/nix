@@ -8,12 +8,10 @@
 						pkgs.neovim
 						pkgs.git
 						pkgs.curl
-						pkgs.brave
 						pkgs.fzf
 						pkgs.ripgrep
 						pkgs.syncthing
 						pkgs.nodejs
-						pkgs.pnpm
 						pkgs.texliveMedium
 						pkgs.cmake # for building
 						pkgs.typescript
@@ -21,7 +19,6 @@
 						pkgs.lua-language-server
 						pkgs.mkcert
 						pkgs.nss
-						pkgs.opencode
 						pkgs.claude-code
 						pkgs.pandoc
         ];
