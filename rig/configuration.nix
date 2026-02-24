@@ -144,13 +144,23 @@
 		};
   };
 
+  age.secrets.cloudflared-rig-token = {
+    file = ../secrets/cloudflared-rig-token.age;
+    owner = "jahan";
+  };
+
   systemd.services.cloudflared-tunnel = {
     description = "Cloudflared Tunnel Service for SSH";
-    after = [ "network.target" ];
+    after = [ "network-online.target" ];
+    wants = [ "network-online.target" ];
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
-      ExecStart = "/etc/nixos/ssh.sh";
-      # Restart = "always";
+      ExecStart = pkgs.writeShellScript "cloudflared-tunnel" ''
+        exec ${pkgs.cloudflared}/bin/cloudflared tunnel run --token $(cat ${config.age.secrets.cloudflared-rig-token.path})
+      '';
+      Restart = "on-failure";
+      RestartSec = 5;
+      User = "jahan";
     };
   };
 

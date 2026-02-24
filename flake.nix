@@ -8,9 +8,11 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
 		home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    agenix.url = "github:ryantm/agenix";
+    agenix.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager }:
+  outputs = inputs@{ self, nix-darwin, nixpkgs, nix-homebrew, home-manager, agenix }:
   {
 		# config for main rig
 		nixosConfigurations."nixos" = nixpkgs.lib.nixosSystem {
@@ -18,6 +20,7 @@
 				specialArgs = { inherit inputs; };
 				modules = [
 						./rig/configuration.nix
+						agenix.nixosModules.default
 						home-manager.nixosModules.home-manager
 						{
 								home-manager.useGlobalPkgs = true;
