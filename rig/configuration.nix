@@ -144,8 +144,8 @@
 		};
   };
 
-  age.secrets.cloudflared-rig-token = {
-    file = ../secrets/cloudflared-rig-token.age;
+  age.secrets.cloudflared-rig-ssh-token = {
+    file = ../secrets/cloudflared-rig-ssh-token.age;
     owner = "jahan";
   };
 
@@ -156,7 +156,7 @@
     wantedBy = [ "multi-user.target" ];
     serviceConfig = {
       ExecStart = pkgs.writeShellScript "cloudflared-tunnel" ''
-        exec ${pkgs.cloudflared}/bin/cloudflared tunnel run --token $(cat ${config.age.secrets.cloudflared-rig-token.path})
+        exec ${pkgs.cloudflared}/bin/cloudflared tunnel run --token $(cat ${config.age.secrets.cloudflared-rig-ssh-token.path})
       '';
       Restart = "on-failure";
       RestartSec = 5;
