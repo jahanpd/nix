@@ -14,6 +14,7 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [   
+						pkgs.keepassxc
 						pkgs.syncthing
 						pkgs.bun
 						pkgs.docker
@@ -21,6 +22,7 @@
 						pkgs.elmPackages.elm-language-server
 						pkgs.google-cloud-sdk
 						pkgs.SDL2
+						pkgs.uv
         ];
       homebrew = {
 					enable=true;
@@ -29,6 +31,7 @@
 						"libtool"
 						"qmk/qmk/qmk"
 						"cloudflared"
+						"ffmpeg"
 					];
 					casks = [
 						"emacs-app"
