@@ -3,7 +3,7 @@
     ../basehome.nix
   ];
 
-  programs.zsh.initExtra = ''
+  programs.zsh.initContent = ''
     export CLAUDE_CODE_OAUTH_TOKEN=$(cat /run/agenix/claude-token)
   '';
 

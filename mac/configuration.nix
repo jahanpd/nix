@@ -14,9 +14,7 @@
       # $ nix-env -qaP | grep wget
       environment.systemPackages =
         [   
-						pkgs.keepassxc
 						pkgs.syncthing
-						pkgs.bun
 						pkgs.docker
 						pkgs.android-tools
 						pkgs.elmPackages.elm-language-server
@@ -40,6 +38,7 @@
 						"libreoffice"
 						"jabref"
 						"nanosaur"
+						"keepassxc"
 					];
         onActivation.cleanup = "zap";
 				onActivation.autoUpdate = true;
