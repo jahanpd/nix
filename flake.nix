@@ -51,8 +51,9 @@
     # $ darwin-rebuild build --flake .#simple
     darwinConfigurations."m1_air" = nix-darwin.lib.darwinSystem {
 		  specialArgs = { inherit inputs self; };
-      modules = [ 
-					./mac/configuration.nix 
+      modules = [
+					./mac/configuration.nix
+					agenix.darwinModules.default
 					home-manager.darwinModules.home-manager
 					{
             home-manager.useGlobalPkgs = true;

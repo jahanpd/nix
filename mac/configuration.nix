@@ -60,6 +60,11 @@
       # Auto upgrade nix package and the daemon service.
       # nix.package = pkgs.nix;
 
+      age.secrets.claude-token = {
+        file = ../secrets/claude-token.age;
+        owner = "jahan";
+      };
+
       # Necessary for using flakes on this system.
       nix.settings.experimental-features = "nix-command flakes";
 
