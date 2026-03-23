@@ -1,10 +1,10 @@
-{ pkgs, config, lib, home-manager, ... }: {
+{ pkgs, config, lib, home-manager, osConfig, ... }: {
   imports = [
     ../basehome.nix
   ];
 
   programs.zsh.initContent = ''
-    export CLAUDE_CODE_OAUTH_TOKEN=$(cat /run/agenix/claude-token)
+    export CLAUDE_CODE_OAUTH_TOKEN=$(cat ${osConfig.age.secrets.claude-token.path})
   '';
 
   programs.zsh.shellAliases = {
