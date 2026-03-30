@@ -149,6 +149,11 @@
     owner = "jahan";
   };
 
+  age.secrets.claude-token = {
+    file = ../secrets/claude-token.age;
+    owner = "jahan";
+  };
+
   systemd.services.cloudflared-tunnel = {
     description = "Cloudflared Tunnel Service for SSH";
     after = [ "network-online.target" ];
