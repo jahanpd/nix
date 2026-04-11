@@ -44,7 +44,7 @@
     # Experimental and only works on modern Nvidia GPUs (Turing or newer).
     powerManagement.finegrained = false;
 
-    open = false;
+    open = true;
 
     # Enable the Nvidia settings menu,
     # accessible via `nvidia-settings`.
@@ -53,6 +53,7 @@
     # Optionally, you may need to select the appropriate driver version for your specific GPU.
     package = config.boot.kernelPackages.nvidiaPackages.stable;
   };
+	hardware.nvidia-container-toolkit.enable = true;
   # potentially critical for running dynamic binaries eg bundled cuda
 	programs.nix-ld.enable = true;
 
@@ -108,7 +109,6 @@
     };
   };
 
-
   # List packages installed in system profile. To search, run:
   # $ nix search wget
 	nixpkgs.config.allowUnfree = true;
@@ -128,6 +128,7 @@
 		bluez
 		openssl
 	  transmission_4-qt6
+		ollama
   ];
 
   services = {
