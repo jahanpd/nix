@@ -57,6 +57,8 @@
   # potentially critical for running dynamic binaries eg bundled cuda
 	programs.nix-ld.enable = true;
 
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
