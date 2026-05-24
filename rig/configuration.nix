@@ -98,6 +98,10 @@ services.resolved = {
     '';
   };
 
+  services.tailscale = {
+					enable = true;
+			};
+
   services.redis.servers = {
 		"cache" = {
 				enable = true;
@@ -141,7 +145,6 @@ services.resolved = {
 		openssl
 	  transmission_4-qt6
 		ollama
-		tailscale
   ];
 
   services = {
