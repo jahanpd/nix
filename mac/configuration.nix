@@ -24,6 +24,16 @@
         ];
       homebrew = {
 					enable=true;
+					taps=[
+						# official taps — listed so cleanup="zap" doesn't try to untap them
+						"homebrew/core"
+						"homebrew/cask"
+						"homebrew/bundle"
+						# third-party
+						"qmk/qmk"
+						"osx-cross/arm"
+						"osx-cross/avr"
+					];
 					brews=[
 						"flyctl"
 						"libtool"
