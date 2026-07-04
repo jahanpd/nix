@@ -8,6 +8,7 @@
       ../basefonts.nix
 			./docker.nix
 			./nginx.nix
+			./homeassistant.nix
 			../cachix.nix
     ];
 
