@@ -8,6 +8,7 @@
       ../basefonts.nix
 			./docker.nix
 			./nginx.nix
+			./homeassistant.nix
 			../cachix.nix
     ];
 
@@ -57,6 +58,18 @@
   # potentially critical for running dynamic binaries eg bundled cuda
 	programs.nix-ld.enable = true;
 
+	services.mullvad-vpn.enable = true;
+  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+	networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+
+services.resolved = {
+  enable = true;
+  dnssec = "true";
+  domains = [ "~." ];
+  fallbackDns = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+  dnsovertls = "true";
+};
+
   # Enable sound.
   # hardware.pulseaudio.enable = true;
   # OR
@@ -85,6 +98,10 @@
 			host  all         all     127.0.0.1/32   trust
     '';
   };
+
+  services.tailscale = {
+					enable = true;
+			};
 
   services.redis.servers = {
 		"cache" = {
