@@ -21,6 +21,7 @@
 						pkgs.google-cloud-sdk
 						pkgs.SDL2
 						pkgs.uv
+						pkgs.opencode
         ];
       homebrew = {
 					enable=true;
