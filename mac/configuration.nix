@@ -22,7 +22,6 @@
 						pkgs.SDL2
 						pkgs.uv
 						pkgs.opencode
-						pkgs.claude-agent-acp
         ];
       homebrew = {
 					enable=true;

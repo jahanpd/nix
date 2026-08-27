@@ -146,7 +146,6 @@ services.resolved = {
 		openssl
 	  transmission_4-qt6
 		ollama
-		claude-agent-acp
   ];
 
   services = {
