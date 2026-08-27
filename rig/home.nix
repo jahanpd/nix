@@ -3,7 +3,6 @@
     ../basehome.nix
   ];
   programs.zsh.initContent = ''
-    export CLAUDE_CODE_OAUTH_TOKEN=$(cat ${osConfig.age.secrets.claude-token.path})
   '';
 
   home.packages = [

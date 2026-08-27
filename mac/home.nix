@@ -4,7 +4,6 @@
   ];
 
   programs.zsh.initContent = ''
-    export CLAUDE_CODE_OAUTH_TOKEN=$(cat ${osConfig.age.secrets.claude-token.path})
     export BUN_INSTALL="$HOME/.bun"
     export PATH="$BUN_INSTALL/bin:$PATH"
   '';

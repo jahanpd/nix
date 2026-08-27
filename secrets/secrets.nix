@@ -5,5 +5,4 @@ let
 in
 {
   "cloudflared-rig-token.age".publicKeys = [ rig ];
-	"claude-token.age".publicKeys = [ mac rig ];
 }
