@@ -59,15 +59,18 @@
 	programs.nix-ld.enable = true;
 
 	services.mullvad-vpn.enable = true;
-  services.mullvad-vpn.package = pkgs.mullvad-vpn;
+	# pkgs.mullvad-vpn no longer ships the daemon; the GUI is a separate toggle now.
+	services.mullvad-vpn.gui.enable = true;
 	networking.nameservers = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
 
 services.resolved = {
   enable = true;
-  dnssec = "true";
-  domains = [ "~." ];
-  fallbackDns = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
-  dnsovertls = "true";
+  settings.Resolve = {
+    DNSSEC = "true";
+    Domains = [ "~." ];
+    FallbackDNS = [ "1.1.1.1#one.one.one.one" "1.0.0.1#one.one.one.one" ];
+    DNSOverTLS = "true";
+  };
 };
 
   # Enable sound.
@@ -144,7 +147,7 @@ services.resolved = {
 		uv
 		bluez
 		openssl
-	  transmission_4-qt6
+	  transmission_4-qt
 		ollama
 		opencode
   ];

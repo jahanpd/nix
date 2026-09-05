@@ -68,6 +68,19 @@
     enable = true;
     address = "0.0.0.0";   # firewall is off -> reachable on LAN / tailnet
   };
+  # esphome >= 2026.8 dropped the built-in `esphome dashboard`; the dashboard
+  # now lives in the separate esphome-device-builder package. The NixOS module
+  # still execs the old subcommand, so swap the ExecStart until upstream
+  # catches up. Same bind address / port / state dir as before.
+  systemd.services.esphome = {
+    path = [ pkgs.esphome-device-builder ];
+    serviceConfig.ExecStart = lib.mkForce (lib.concatStringsSep " " [
+      (lib.getExe pkgs.esphome-device-builder)
+      "--host ${config.services.esphome.address}"
+      "--port ${toString config.services.esphome.port}"
+      "/var/lib/esphome"
+    ]);
+  };
 
   # Low-latency restreamer for the Reolink camera. Bound to loopback only — HA
   # proxies it, so nothing extra is exposed on the LAN/tailnet.
