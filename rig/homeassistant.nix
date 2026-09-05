@@ -33,6 +33,24 @@
       "automation ui" = "!include automations.yaml";
       "scene ui"      = "!include scenes.yaml";
       "script ui"     = "!include scripts.yaml";
+
+      # The go2rtc integration ships inside default_config; it just needs to be
+      # told where the server is. Gives camera cards WebRTC (sub-second) instead
+      # of HLS (~3s of buffering before the first frame).
+      go2rtc.url = "http://127.0.0.1:1984";
+
+      # One list of phones -> notify.garage_alerts. The garage automations call
+      # the group, so adding/removing a phone is a one-line change here.
+      notify = [
+        {
+          platform = "group";
+          name = "garage_alerts";
+          services = [
+            { service = "mobile_app_el_dude_2"; }        # Jahan
+            { service = "mobile_app_linleys_iphone"; }   # Linley
+          ];
+        }
+      ];
     };
   };
 
@@ -49,6 +67,13 @@
   services.esphome = {
     enable = true;
     address = "0.0.0.0";   # firewall is off -> reachable on LAN / tailnet
+  };
+
+  # Low-latency restreamer for the Reolink camera. Bound to loopback only — HA
+  # proxies it, so nothing extra is exposed on the LAN/tailnet.
+  services.go2rtc = {
+    enable = true;
+    settings.api.listen = "127.0.0.1:1984";
   };
 
   # First USB flash of the ESP8266 (CH340 serial chip) needs dialout access.
