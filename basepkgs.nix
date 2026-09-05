@@ -19,10 +19,6 @@
 						pkgs.lua-language-server
 						pkgs.mkcert
 						pkgs.nss
-						pkgs.claude-code
 						pkgs.pandoc
-						pkgs.elixir
-						pkgs.erlang
-            pkgs.elixir-ls
         ];
 }
