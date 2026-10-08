@@ -150,6 +150,7 @@ services.resolved = {
 	  transmission_4-qt
 		ollama
 		opencode
+		codex
   ];
 
   services = {
